@@ -1,0 +1,16 @@
+{
+  "id": "/pentaho/biserver/biserver.4.8",
+  "cpus": 0.25,
+  "mem": 1024.0,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "pentaho/biserver:4.8",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 8080, "hostPort": 0, "servicePort": 0, "protocol": "tcp" }
+      ]
+    }
+  }
+}
