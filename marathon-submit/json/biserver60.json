@@ -1,7 +1,7 @@
 {
   "id": "/pentaho/biserver/biserver.6.0",
-  "cpus": 0.25,
-  "mem": 1024.0,
+  "cpus": 1,
+  "mem": 2048.0,
   "instances": 1,
   "container": {
     "type": "DOCKER",
@@ -12,5 +12,14 @@
         { "containerPort": 8080, "hostPort": 0, "servicePort": 1234, "protocol": "tcp" }
       ]
     }
-  }
+  },
+  "constraints": [["hostname", "UNIQUE"]],
+  "healthChecks": [{
+          "protocol": "HTTP",
+          "portIndex": 0,
+          "path": "/",
+          "gracePeriodSeconds": 5,
+          "intervalSeconds": 20,
+          "maxConsecutiveFailures": 3
+  }]
 }
