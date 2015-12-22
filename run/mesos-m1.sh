@@ -15,7 +15,7 @@ ZOOKEEPER_VERSION=3.4.6
 echo "start mesos-m1" | figlet | lolcat
 docker-machine env mesos-m1
 eval "$(docker-machine env mesos-m1)"
-docker rm -f zookeeper mesos-master marathon chronos slave haproxy
+docker rm -f zookeeper mesos-master marathon chronos slave
 
 echo "---> start zookeeper" | lolcat
 docker run -d \
