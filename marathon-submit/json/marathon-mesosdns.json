@@ -1,0 +1,30 @@
+{
+  "id": "dns",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "mesosphere/mesos-dns",
+      "network": "HOST"
+    }
+  },
+  "volumes": [
+      {
+          "containerPath": "/config.json",
+          "hostPath": "/etc/mesos-dns/config.js",
+          "mode": "RO"
+      }
+  ],
+  "instances": 1,
+  "cpus": 0.2,
+  "mem": 500.0,
+  "healthChecks": [
+    {
+      "protocol": "TCP",
+      "portIndex": 0,
+      "gracePeriodSeconds": 15,
+      "intervalSeconds": 10,
+      "timeoutSeconds": 5,
+      "maxConsecutiveFailures": 3
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "id": "/pentaho/biserver/biserver.6.0",
+  "id": "/pentaho/biserver6",
   "cpus": 1,
   "mem": 2048.0,
   "instances": 1,
@@ -9,7 +9,7 @@
       "image": "pentaho/biserver:6.0",
       "network": "BRIDGE",
       "portMappings": [
-        { "containerPort": 8080, "hostPort": 0, "servicePort": 1234, "protocol": "tcp" }
+        { "containerPort": 8080, "hostPort": 0, "servicePort": 8081, "protocol": "tcp" }
       ]
     }
   },
@@ -18,7 +18,7 @@
           "protocol": "HTTP",
           "portIndex": 0,
           "path": "/",
-          "gracePeriodSeconds": 5,
+          "gracePeriodSeconds": 300,
           "intervalSeconds": 20,
           "maxConsecutiveFailures": 3
   }]

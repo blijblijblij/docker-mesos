@@ -5,7 +5,7 @@ echo "local cluster" | figlet | lolcat
 
 clean() {
   echo "---> rm old machines" | lolcat
-  docker-machine rm -f mesos-m1 mesos-m2 mesos-m3 mesos-s1 mesos-s2 > /dev/null
+  docker-machine rm -f mesos-lb1 mesos-m1 mesos-m2 mesos-m3 mesos-s1 mesos-s2 > /dev/null
 }
 
 create_masters() {
@@ -48,10 +48,21 @@ create_slaves() {
       --virtualbox-disk-size "50000" \
       mesos-s2
 }
+
+create_loadbalancer() {
+  echo "---> create loadbalancer" | lolcat
+  echo "---> create mesos-lb1" | lolcat
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count "1" \
+    --virtualbox-memory "1024" \
+    --virtualbox-disk-size "50000" \
+    mesos-lb1
+}
 main() {
   clean
   create_masters
   create_slaves
+  create_loadbalancer
   echo "done" | figlet | lolcat
 }
 
