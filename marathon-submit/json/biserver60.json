@@ -1,5 +1,5 @@
 {
-  "id": "/pentaho/biserver",
+  "id": "/biserver",
   "cpus": 1,
   "mem": 4096.0,
   "instances": 1,
