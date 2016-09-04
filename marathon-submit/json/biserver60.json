@@ -6,7 +6,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "blijblijblij/pentaho:biserver-ce-6.1.0.1-196",
+      "image": "blijblijblij/pentaho:biserver-ce-6.0.1.0-386",
       "network": "BRIDGE",
       "portMappings": [
         { "containerPort": 8080, "hostPort": 0, "servicePort": 8081, "protocol": "tcp" }
